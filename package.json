@@ -4,7 +4,7 @@
   "description": "jimbot 2.0",
   "main": "index.js",
   "scripts": {
-    "start": "node testIndex.js"
+    "start": "node index.js"
   },
   "author": "George Holden",
   "license": "ISC",

@@ -19,7 +19,6 @@ exports.init = function init(callback) {
     });
 }
 
-
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
  * given callback function.
@@ -96,23 +95,23 @@ function listMajors(auth) {
 }
 
 // Ty MDN
-function getRandomInt(min, max) {
+function randInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-exports.getGif = async function(auth) {
+// TODO: Fix hard coding of values
+exports.getGif = async function(auth, callback) {
     const sheets = google.sheets({version: 'v4', auth});
-    let total = await sheets.spreadsheets.values.get({
+    
+    let response = await sheets.spreadsheets.values.batchGet({
         spreadsheetId: '1WzRlafLlz9Lut9juD9-Xd66l_4-Lyhs3RFsDnMPNnHY',
-        range: 'gifs!B2'
+        ranges: [
+          'gifs!B' + randInt(3, 17).toString(),
+          'gifs!C' + randInt(3, 25).toString(),
+      ]
     })
-    console.log(total);
-
-//     cell = 'gifs!B' + getRandomInt()
-//     await sheets.spreadsheets.values.get({
-//         spreadsheetId: '1WzRlafLlz9Lut9juD9-Xd66l_4-Lyhs3RFsDnMPNnHY',
-//         range: 'gifs!'
-//     })
+    callback({ gif: response.data.valueRanges[0].values[0], 
+      phrase: response.data.valueRanges[1].values[0] })
 }
