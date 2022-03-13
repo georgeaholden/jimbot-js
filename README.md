@@ -1,5 +1,5 @@
 # JimBot JS
-### 0.1.0
+### 0.1.1
 Source Code for the rewritten jimbot, now in JavaScript
 
 Since the end of support for discord.py, I've rewritten jimbot in a different

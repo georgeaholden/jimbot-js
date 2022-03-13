@@ -1,4 +1,6 @@
-function isThanks(message) {
+// This hard coding is gross but fast : D
+// I think this problem is always O(n^2)
+exports.isThanks = function(message) {
     let foundThank = false;
     for (thank of ['ty', 'thank', 'arigatou', 'gracias', 'cheers', 'chur', 'merci', 'onya', 'grazie', 'ta', 
     'shot', 'danke', 'appreciate', 'thx', 'tanks', 'gamsahabnida', 'Takk', 'Mahalo', 'Toda']){
@@ -17,8 +19,4 @@ function isThanks(message) {
         }
     }
     return false
-}
-
-module.exports = {
-    isThanks: isThanks
 }
