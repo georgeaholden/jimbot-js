@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { Client, Collection, Intents} = require('discord.js');
 require('dotenv').config();
-const sheets = require('E:/_George/Jimbot js/utils/sheets.js')
+const sheets = require('./utils/sheets.js')
 const token = process.env.BOT_TOKEN
 
 const botIntents = new Intents();
