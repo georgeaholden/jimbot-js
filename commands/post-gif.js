@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, Guild, Message } = require('discord.js');
-const sheets = require('./utils/sheets.js')
+const sheets = require('../utils/sheets.js')
 
 /* TODO: This function works, and isn't impossible to read but 
 * the problem is that it combines both the async/await approach and
