@@ -27,7 +27,7 @@ const formattedResponse = function(serverStatus) {
         }
     } else if (numPlayers == 1) {
         result += 'There is 1 player currently online:\n'
-        result += player + '\n'
+        result += serverStatus.players.list[0] + '\n'
     } else {
         result += "Nobody is currently online :'(";
     }
