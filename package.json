@@ -19,5 +19,8 @@
     "firebase": "^9.6.8",
     "googleapis": "^39.2.0",
     "minecraft-server-util": "^5.2.9"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0"
   }
 }

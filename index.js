@@ -1,11 +1,11 @@
 const fs = require('fs');
 const { Client, Collection, Intents} = require('discord.js');
 require('dotenv').config();
-const sheets = require('./utils/sheets.js')
-const token = process.env.BOT_TOKEN
+const sheets = require('./utils/sheets.js');
+const token = process.env.BOT_TOKEN;
 
 const botIntents = new Intents();
-botIntents.add(Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES)
+botIntents.add(Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES);
 const client = new Client({intents: botIntents}); // Like bot class
 client.commands = new Collection(); // Attribute containing all command functions so I can access anywhere
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // All the .js files in the commands folder
@@ -27,6 +27,7 @@ for (const file of eventFiles) {
 }
 
 sheets.init((auth) => { 
-    client.sheetsAuth = auth
-    console.log('Connected to Google Sheets')} );
+    client.sheetsAuth = auth;
+    console.log('Connected to Google Sheets');
+}); // Check I didn't break this by fixing formatting
 client.login(token);

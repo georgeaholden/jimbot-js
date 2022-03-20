@@ -7,8 +7,8 @@
 exports.isThanks = function(message) {
     message = message.toLowerCase();
     let foundThank = false;
-    for (thank of ['ty', 'thank', 'arigatou', 'gracias', 'cheers', 'chur', 'merci', 'onya', 'grazie', 'ta', 
-    'shot', 'danke', 'appreciate', 'thx', 'tanks', 'gamsahabnida', 'Takk', 'Mahalo', 'Toda']){
+    for (let thank of ['ty', 'thank', 'arigatou', 'gracias', 'cheers', 'chur', 'merci', 'onya', 'grazie', 'ta', 
+        'shot', 'danke', 'appreciate', 'thx', 'tanks', 'gamsahabnida', 'Takk', 'Mahalo', 'Toda']){
         if (message.includes(thank)) {
             foundThank = true;
             break;
@@ -16,12 +16,12 @@ exports.isThanks = function(message) {
     }
 
     if (!foundThank) {
-        return false
+        return false;
     }
-    for (botName of ['bot', 'jim']) {
+    for (let botName of ['bot', 'jim']) {
         if (message.includes(botName)) {
-            return true
+            return true;
         }
     }
-    return false
-}
+    return false;
+};

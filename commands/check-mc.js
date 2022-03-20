@@ -6,30 +6,30 @@ module.exports = {
         .setName('mc')
         .setDescription('Checks the status of the mc server'),
     async execute(interaction) {
-        serverStatus = await mcStatus.queryFull('mc.slimjims.life');
-        response = formattedResponse(serverStatus);
+        let serverStatus = await mcStatus.queryFull('mc.slimjims.life');
+        let response = formattedResponse(serverStatus);
         const message = await interaction.reply({content: response, fetchReply: true});
         if (serverStatus.players.online == 0) {
-            message.react('<:Smodge:893005673888096286>')
+            message.react('<:Smodge:893005673888096286>');
         } else {
-            message.react('<:HyperS:698500153342033930>')
+            message.react('<:HyperS:698500153342033930>');
         }
     },
-}
+};
 
 const formattedResponse = function(serverStatus) {
-    result = 'The mc Server lives!\n';
-    numPlayers = serverStatus.players.online;
+    let result = 'The mc Server lives!\n';
+    let numPlayers = serverStatus.players.online;
     if (numPlayers > 1) {
         result += `There are ${numPlayers} players currently online:\n`;
-        for (player of serverStatus.players.list) {
-            result += player + '\n'
+        for (let player of serverStatus.players.list) {
+            result += player + '\n';
         }
     } else if (numPlayers == 1) {
-        result += 'There is 1 player currently online:\n'
-        result += serverStatus.players.list[0] + '\n'
+        result += 'There is 1 player currently online:\n';
+        result += serverStatus.players.list[0] + '\n';
     } else {
-        result += "Nobody is currently online :'(";
+        result += 'Nobody is currently online :\'(';
     }
     return result;
-}
+};
