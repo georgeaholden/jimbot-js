@@ -1,5 +1,11 @@
 module.exports = {
     name: 'interactionCreate',
+
+    /**
+     * First point of contact after an interaction is triggered, sends the interaction to the appropriate
+     * command and logs some basic info to the console.
+     * @param {Interaction} interaction 
+     */
     async execute(interaction) {
         console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction`);
 
